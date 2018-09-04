@@ -21,7 +21,8 @@ function Search() {
     borderRadius: "2px",
     fontWeight: "700",
     fontSize: "20px",
-    padding: "10px"
+    padding: "10px",
+    marginTop: "20px"
   }
 
   let h1Style = {
