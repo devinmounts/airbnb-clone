@@ -20,7 +20,7 @@ function Search() {
     boxShadow: "0px 0px 75px 1px rgba(0,0,0,0.75)",
     borderRadius: "2px",
     fontWeight: "700",
-    fontSize: "20px"
+    fontSize: "20px",
     padding: "10px"
   }
 
