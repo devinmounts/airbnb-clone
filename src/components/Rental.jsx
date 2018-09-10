@@ -20,6 +20,7 @@ function Rental(listing) {
             <p><b>{listing.type} • {listing.city}</b></p>
             <h3>{listing.title}</h3>
             <p>{listing.description}</p>
+            <p>{listing.id}</p>
         </div>
     );
 }

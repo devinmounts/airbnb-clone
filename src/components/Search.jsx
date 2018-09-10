@@ -15,7 +15,7 @@ function Search() {
         width: '75%',
         margin: '0 auto',
         height: '40px',
-        webkitBoxShadow: '0px 0px 75px 1px rgba(0,0,0,0.75)',
+        WebkitBoxShadow: '0px 0px 75px 1px rgba(0,0,0,0.75)',
         mozBoxShadow: '0px 0px 75px 1px rgba(0,0,0,0.75)',
         boxShadow: '0px 0px 75px 1px rgba(0,0,0,0.75)',
         borderRadius: '2px',
