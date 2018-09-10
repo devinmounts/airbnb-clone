@@ -13,22 +13,23 @@ function Home (props) {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover'
-
     };
+    console.log(props);
     return (
         <div>
             <div style={welcomeDiv}>
                 <Search/>
             </div>
             <div>
-                <Rentals listings={props.listingsList}/>
+                <Rentals listings={props.listingsList} onUpdateLikes={props.onUpdateLikes}/>
             </div>
         </div>
     );
 }
 
 Home.propTypes = {
-  listingsList: PropTypes.array
+  listingsList: PropTypes.array,
+  onUpdateLikes: PropTypes.func
 }
 
 export default Home;

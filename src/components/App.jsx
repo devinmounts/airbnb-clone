@@ -12,17 +12,35 @@ class App extends React.Component {
     super(props);
     this.state = {
       masterListingsList: [
-           {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23d'},
-           {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23a' },
-           {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23v'},
-           {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23w'},
-           {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23ds'},
-           {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23daa'},
-           {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23daad'},
-           {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23dssd'}
+           {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23d', likes:0},
+           {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23a', likes:0 },
+           {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23v', likes:0},
+           {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23w', likes:0},
+           {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23ds', likes:0},
+           {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23daa', likes:0},
+           {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23daad', likes:0},
+           {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23dssd', likes:0}
        ]
     };
     this.handleAddingNewListing = this.handleAddingNewListing.bind(this);
+    this.handleUpdatingLikes = this.handleUpdatingLikes.bind(this);
+  }
+
+  handleUpdatingLikes(likeId) {
+    console.log(likeId);
+    console.log(this.state)
+    // let secondMasterListingList = this.state.masterListingsList.slice();
+
+
+    // masterList.forEach(function(listing){
+    //     if(listing.id == likeId){
+    //       this.foundListing = listing;
+    //     } else {
+    //
+    //     }
+    //   })
+    //   console.log(foundListing);
+    //   return foundListing;
   }
 
   handleAddingNewListing(newListing) {
@@ -30,12 +48,14 @@ class App extends React.Component {
     newMasterListingList.push(newListing);
     this.setState({masterListingsList: newMasterListingList})
   }
+
+
   render(){
     return (
         <div>
           <NavBar/>
           <Switch>
-              <Route exact path='/' render={()=> <Home listingsList={this.state.masterListingsList} />} />
+              <Route exact path='/' render={()=> <Home listingsList={this.state.masterListingsList} onUpdateLikes={this.handleUpdatingLikes}/>} />
               <Route  path='/newlisting' render={()=><NewListingControl onNewListingCreation={this.handleAddingNewListing} />} />
           </Switch>
         </div>

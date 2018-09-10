@@ -10,7 +10,9 @@ function Rentals (props) {
         backgroungColor: 'satin'
     };
 
-    console.log(props.listings)
+    console.log(props.onUpdateLikes)
+    console.log(props.listings[props.listings.length-1].id)
+
     return(
         <div style={rentalDiv}>
           {props.listings.map((listing) =>
@@ -20,14 +22,18 @@ function Rentals (props) {
               type = {listing.type}
               city = {listing.city}
               description = {listing.description}
-              key ={listing.id} />
+              likes = {listing.likes}
+              key = {listing.id}
+              id = {listing.id}
+              onUpdateLikes={props.onUpdateLikes}/>
           )}
         </div>
     );
 }
 
 Rentals.propTypes = {
-  listings: PropTypes.array
+  listings: PropTypes.array,
+  onUpdateLikes: PropTypes.func
 }
 
 export default Rentals;

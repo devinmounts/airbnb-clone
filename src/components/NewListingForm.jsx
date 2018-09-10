@@ -23,6 +23,7 @@ function NewListingForm(props){
       title: _title.value,
       description: _description.value,
       image: _image.value,
+      likes: 0,
       id: v4()
     });
     _type.value = '';
