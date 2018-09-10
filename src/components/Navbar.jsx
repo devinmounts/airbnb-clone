@@ -35,6 +35,7 @@ function NavBar() {
                 <h5 style={linkEl}>Become A Host</h5>
                 <h5 style={linkEl}>Earn Credit</h5>
                 <h5 style={linkEl}>Help</h5>
+                <Link to='/newlisting'><h5 style={linkEl}>New Listing</h5></Link>
                 <h5 style={linkEl}>Log in</h5>
             </div>
         </div>
