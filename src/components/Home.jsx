@@ -18,10 +18,10 @@ function Home (props) {
   return (
     <div>
       <div style={welcomeDiv}>
-        <Search/>
+        <Search onFilterTextChange={props.onFilterTextChange}/>
       </div>
       <div>
-        <Rentals listings={props.listingsList} onUpdateLikes={props.onUpdateLikes}/>
+        <Rentals listings={props.listingsList} onUpdateLikes={props.onUpdateLikes} filterText={props.filterText}/>
       </div>
     </div>
   );
@@ -29,7 +29,9 @@ function Home (props) {
 
 Home.propTypes = {
   listingsList: PropTypes.array,
-  onUpdateLikes: PropTypes.func
+  onUpdateLikes: PropTypes.func,
+  onFilterTextChange: PropTypes.func,
+  filterText: PropTypes.string
 };
 
 export default Home;
