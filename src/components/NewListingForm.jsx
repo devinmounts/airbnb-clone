@@ -33,41 +33,47 @@ function NewListingForm(props){
     _image.value = '';
   }
   return(
-      <div style={formDiv}>
-        <form onSubmit={handleAddingNewListing}>
-          <input
-            type='text'
-            id='type'
-            placeholder='Type of Rental'
-            ref = {(input) =>{_type = input;}}/>
-          <input
-            type='text'
-            id='city'
-            placeholder='Location'
-            ref = {(input) =>{_city = input;}}/>
-          <input
-            type='text'
-            id='title'
-            placeholder='Title'
-            ref = {(input) =>{_title = input;}}/>
-          <input
-            type='text'
-            id='description'
-            placeholder='Description'
-            ref = {(input) =>{_description = input;}}/>
-          <input
-            type='text'
-            id='image'
-            placeholder='Image URL'
-            ref = {(input) =>{_image = input;}}/>
-          <button type='submit'>Create New Listing</button>
-        </form>
-      </div>
+    <div style={formDiv}>
+      <a href="/#">Back to home</a>
+      <form onSubmit={handleAddingNewListing}>
+        <input
+          type='text'
+          id='type'
+          value='Test'
+          placeholder='Type of Rental'
+          ref = {(input) =>{_type = input;}}/>
+        <input
+          type='text'
+          id='city'
+          value='Test'
+          placeholder='Location'
+          ref = {(input) =>{_city = input;}}/>
+        <input
+          type='text'
+          id='title'
+          value='Test'
+          placeholder='Title'
+          ref = {(input) =>{_title = input;}}/>
+        <input
+          type='text'
+          id='description'
+          value='Test'
+          placeholder='Description'
+          ref = {(input) =>{_description = input;}}/>
+        <input
+          type='text'
+          id='image'
+          value='https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg?resize=640%2C426'
+          placeholder='Image URL'
+          ref = {(input) =>{_image = input;}}/>
+        <button type='submit'>Create New Listing</button>
+      </form>
+    </div>
   );
 }
 
 NewListingForm.propTypes = {
   onNewListingCreation: PropTypes.func
-}
+};
 
 export default NewListingForm;
