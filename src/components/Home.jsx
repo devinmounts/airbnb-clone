@@ -18,7 +18,11 @@ function Home (props) {
   return (
     <div>
       <div style={welcomeDiv}>
-        <Search onFilterTextChange={props.onFilterTextChange} onFilterCategory={props.onFilterCategory}/>
+        <Search
+          onFilterTextChange={props.onFilterTextChange}
+          onFilterCategory={props.onFilterCategory}
+          onExpansionShow={props.onExpansionShow}
+        />
       </div>
       <div>
         <Rentals listings={props.listingsList} onUpdateLikes={props.onUpdateLikes} filterText={props.filterText} filterCategory={props.filterCategory}/>
@@ -33,7 +37,8 @@ Home.propTypes = {
   onFilterTextChange: PropTypes.func,
   filterText: PropTypes.string,
   onFilterCategory: PropTypes.func,
-  filterCategory: PropTypes.string
+  filterCategory: PropTypes.string,
+  onExpansionShow: PropTypes.func
 };
 
 export default Home;
