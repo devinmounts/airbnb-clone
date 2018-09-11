@@ -13,6 +13,7 @@ function Rentals (props) {
 
     const filterText = props.filterText;
     const list = [];
+    const filterCategory = props.filterCategory;
 
 
       let mappedListings = props.listings.map((el, i) => {
@@ -34,12 +35,27 @@ function Rentals (props) {
 
       resultingList.forEach((listing) =>{
         if (filterText !== null){
-          if(listing.city.indexOf(filterText) === -1) {
-            return;
-          }
+          if (filterCategory == "city") {
+            if(listing.city.indexOf(filterText) === -1) {
+              return;
+            }
+              list.push(listing);
+            }
+          if (filterCategory == "title") {
+            if(listing.title.indexOf(filterText) === -1) {
+              return;
+            }
+              list.push(listing);
+            }
+          if (filterCategory == "type") {
+            if(listing.type.indexOf(filterText) === -1) {
+              return;
+            }
+              list.push(listing);
+            }
+          else {
             list.push(listing);
-        } else {
-          list.push(listing);
+          }
         }
       });
 
@@ -64,7 +80,9 @@ function Rentals (props) {
 
 Rentals.propTypes = {
   listings: PropTypes.array,
-  onUpdateLikes: PropTypes.func
+  onUpdateLikes: PropTypes.func,
+  filterText: PropTypes.string,
+  filterCategory: PropTypes.string
 }
 
 export default Rentals;

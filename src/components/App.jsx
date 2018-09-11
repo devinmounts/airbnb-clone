@@ -21,11 +21,13 @@ class App extends React.Component {
         {image: 'https://a0.muscache.com/im/pictures/45680811/f4987a12_original.jpg?aki_policy=large', title: 'Off-grid itHouse', type:'Entire House', city: 'PioneerTown', description: 'From $400 per night · Free cancellation 212 reviews', key: '23daad', likes:0},
         {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23dssd', likes:0}
       ],
-      filterText: ''
+      filterText: '',
+      filterCategory: ''
     };
     this.handleAddingNewListing = this.handleAddingNewListing.bind(this);
     this.handleUpdatingLikes = this.handleUpdatingLikes.bind(this);
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+    this.handleFilterCategory = this.handleFilterCategory.bind(this);
   }
 
   handleAddingNewListing(newListing) {
@@ -37,7 +39,6 @@ class App extends React.Component {
   handleUpdatingLikes(likeId, check) {
     let masterListingList = this.state.masterListingsList.slice();
     let updatedMasterListingList = [];
-    console.log(check);
     masterListingList.forEach(function(listing){
       if(listing.id == likeId && check == 'true'){
         let foundListing = listing;
@@ -55,8 +56,11 @@ class App extends React.Component {
   }
 
   handleFilterTextChange(filterText) {
-    console.log(filterText);
     this.setState({filterText: filterText})
+  }
+
+  handleFilterCategory(filterCategory) {
+    this.setState({filterCategory: filterCategory})
   }
 
   render(){
@@ -64,7 +68,7 @@ class App extends React.Component {
       <div>
         <NavBar/>
         <Switch>
-          <Route exact path='/' render={()=> <Home listingsList={this.state.masterListingsList} onUpdateLikes={this.handleUpdatingLikes} onFilterTextChange={this.handleFilterTextChange} filterText={this.state.filterText}/>} />
+          <Route exact path='/' render={()=> <Home listingsList={this.state.masterListingsList} onUpdateLikes={this.handleUpdatingLikes} onFilterTextChange={this.handleFilterTextChange} filterText={this.state.filterText} onFilterCategory={this.handleFilterCategory} filterCategory={this.state.filterCategory}/>} />
           <Route  path='/newlisting' render={()=><NewListingControl onNewListingCreation={this.handleAddingNewListing} />} />
         </Switch>
       </div>
