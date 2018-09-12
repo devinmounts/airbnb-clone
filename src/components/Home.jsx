@@ -22,6 +22,7 @@ function Home (props) {
           onFilterTextChange={props.onFilterTextChange}
           onFilterCategory={props.onFilterCategory}
           onExpansionShow={props.onExpansionShow}
+          expansionShow={props.expansionShow}
         />
       </div>
       <div>
@@ -38,7 +39,8 @@ Home.propTypes = {
   filterText: PropTypes.string,
   onFilterCategory: PropTypes.func,
   filterCategory: PropTypes.string,
-  onExpansionShow: PropTypes.func
+  onExpansionShow: PropTypes.func,
+  expansionShow: PropTypes.bool
 };
 
 export default Home;

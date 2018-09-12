@@ -66,8 +66,9 @@ class App extends React.Component {
   }
 
   handleExpansionShow(){
-    this.setState({expansionShow: true});
-    console.log(this.state.expansionShow)
+    this.setState( prevState => ({
+      expansionShow: !prevState.expansionShow}));
+    console.log(this.state.expansionShow);
   }
 
   render(){
@@ -77,12 +78,13 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' render={()=>
             <Home listingsList={this.state.masterListingsList}
-            onUpdateLikes={this.handleUpdatingLikes}
-            onFilterTextChange={this.handleFilterTextChange}
-            filterText={this.state.filterText}
-            onFilterCategory={this.handleFilterCategory}
-            filterCategory={this.state.filterCategory}
-            onExpansionShow={this.handleExpansionShow}/>}
+              onUpdateLikes={this.handleUpdatingLikes}
+              onFilterTextChange={this.handleFilterTextChange}
+              filterText={this.state.filterText}
+              onFilterCategory={this.handleFilterCategory}
+              filterCategory={this.state.filterCategory}
+              onExpansionShow={this.handleExpansionShow}
+              expansionShow={this.state.expansionShow}/>}
           />
           <Route  path='/newlisting' render={()=>
             <NewListingControl onNewListingCreation={this.handleAddingNewListing} />}

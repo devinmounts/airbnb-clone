@@ -1,10 +1,5 @@
 import React from 'react';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
-import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import ExpansionPanel from './ExpansionPanel'
 
 
 class Search extends React.Component  {
@@ -21,7 +16,7 @@ class Search extends React.Component  {
   }
 
   handleFilterCategory(e){
-    this.props.onFilterCategory(e.target.value)
+    this.props.onFilterCategory(e.target.value);
   }
 
   handleExpansionShow(){
@@ -32,34 +27,39 @@ class Search extends React.Component  {
 
   render(){
 
-      let searchDiv = {
-        position: 'absolute',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        color: 'white',
-        width: '100%',
-        fontSize: '24px',
-        fontWeight: '700',
-        textAlign: 'center'
-      };
+    let searchDiv = {
+      position: 'absolute',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      color: 'white',
+      width: '100%',
+      fontSize: '24px',
+      fontWeight: '700',
+      textAlign: 'center'
+    };
 
-      let inputStyle ={
-        display: 'block',
-        width: '75%',
-        margin: '0 auto',
-        height: '40px',
-        borderRadius: '2px',
-        fontWeight: '700',
-        fontSize: '20px',
-        padding: '10px',
-        marginTop: '20px'
-      };
+    let inputStyle ={
+      display: 'block',
+      width: '75%',
+      margin: '0 auto',
+      height: '40px',
+      borderRadius: '2px',
+      fontWeight: '700',
+      fontSize: '20px',
+      padding: '10px',
+      marginTop: '20px'
+    };
 
-      let h1Style = {
-        width: '75%',
-        margin: '0 auto',
-        textAlign: 'left'
-      };
+    let h1Style = {
+      width: '75%',
+      margin: '0 auto',
+      textAlign: 'left'
+    };
+
+    let showExpansion = null;
+    if(this.props.expansionShow){
+      showExpansion = <ExpansionPanel onFilterCategory={this.props.handleFilterCategory}/>
+    }
 
     return(
       <div style={searchDiv}>
@@ -69,11 +69,9 @@ class Search extends React.Component  {
           onChange={this.handleFilterTextChange}
           placeholder="Try homes in Mexico City"
         />
-          <Button variant="contained" value="title" onClick={this.handleFilterCategory}>Title</Button>
-          <Button variant="contained" value="type" onClick={this.handleFilterCategory}>Type</Button>
-          <Button variant="contained" value="city" onClick={this.handleFilterCategory}>City</Button>
+        {showExpansion}
       </div>
-    )
+    );
   }
 }
 
