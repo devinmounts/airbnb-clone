@@ -7,16 +7,11 @@ class Search extends React.Component  {
   constructor(props){
     super(props);
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-    this.handleFilterCategory = this.handleFilterCategory.bind(this);
     this.handleExpansionShow = this.handleExpansionShow.bind(this);
   }
 
   handleFilterTextChange(e){
     this.props.onFilterTextChange(e.target.value);
-  }
-
-  handleFilterCategory(e){
-    this.props.onFilterCategory(e.target.value);
   }
 
   handleExpansionShow(){
@@ -55,10 +50,9 @@ class Search extends React.Component  {
       margin: '0 auto',
       textAlign: 'left'
     };
-
     let showExpansion = null;
     if(this.props.expansionShow){
-      showExpansion = <ExpansionPanel onFilterCategory={this.props.handleFilterCategory}/>
+      showExpansion = <ExpansionPanel onFilterCategory={this.props.onFilterCategory}/>
     }
 
     return(

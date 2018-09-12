@@ -14,7 +14,6 @@ function Home (props) {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover'
   };
-
   return (
     <div>
       <div style={welcomeDiv}>

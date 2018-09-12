@@ -34,9 +34,13 @@ function Rentals (props) {
   });
 
   resultingList.forEach((listing) =>{
+
     if (filterText !== null){
+console.log(filterCategory);
       if (filterCategory == 'city') {
         if(listing.city.indexOf(filterText) === -1) {
+          console.log(filterText);
+          console.log(filterCategory);
           return;
         }
         list.push(listing);
