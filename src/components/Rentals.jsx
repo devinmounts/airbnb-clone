@@ -37,7 +37,7 @@ function Rentals (props) {
 
     if (filterText !== null){
 console.log(filterCategory);
-      if (filterCategory == 'city') {
+      if (filterCategory == 'city' || filterCategory == null) {
         if(listing.city.indexOf(filterText) === -1) {
           console.log(filterText);
           console.log(filterCategory);

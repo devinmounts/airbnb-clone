@@ -22,7 +22,7 @@ class App extends React.Component {
         {image: 'https://a0.muscache.com/im/pictures/56bff280-aba3-42f3-af42-adc2814a72f4.jpg?aki_policy=large', title: 'Underground Hygge', type:'Earth House', city: 'Orondo', description: 'From $400 per night · Free cancellation 379 reviews', key: '23dssd', likes:0}
       ],
       filterText: '',
-      filterCategory: '',
+      filterCategory: null,
       expansionShow: false
     };
     this.handleAddingNewListing = this.handleAddingNewListing.bind(this);
