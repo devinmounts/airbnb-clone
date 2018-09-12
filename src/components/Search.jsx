@@ -24,8 +24,7 @@ class Search extends React.Component  {
 
     let searchDiv = {
       position: 'absolute',
-      top: '50%',
-      transform: 'translateY(-50%)',
+      top: '34%',
       color: 'white',
       width: '100%',
       fontSize: '24px',
@@ -50,6 +49,7 @@ class Search extends React.Component  {
       margin: '0 auto',
       textAlign: 'left'
     };
+
     let showExpansion = null;
     if(this.props.expansionShow){
       showExpansion = <ExpansionPanel onFilterCategory={this.props.onFilterCategory}/>

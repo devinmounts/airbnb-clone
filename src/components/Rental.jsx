@@ -10,14 +10,29 @@ function Rental(props) {
     width:'23%',
     display: 'inline-block',
     verticalAlign: 'top',
-    marginRight: '2%',
-    marginTop: '2rem'
+    marginRight: '1%',
+    marginTop: '2rem',
+    border: '1px solid #c7c7c7',
+    padding: '5px',
+    borderRadius: '5px',
+    WebkitBoxShadow: '0px 0px 18px 0px rgba(0,0,0,0.5)',
+    MozBoxShadow: '0px 0px 18px 0px rgba(0,0,0,0.5)',
+    boxShadow: '0px 0px 18px 0px rgba(0,0,0,0.5)'
   };
 
   let imageStyling = {
     maxWidth:'100%',
     borderRadius: '3px'
   };
+
+  let textStyle = {
+    padding: '0 7px',
+  }
+
+  let spanStyle = {
+    marginRight: '10px',
+    fontWeight: '700'
+  }
 
   function handleLike(likedId, check){
     props.onUpdateLikes(likedId, check);
@@ -26,16 +41,19 @@ function Rental(props) {
   return(
     <div style={listingDiv}>
       <img style={imageStyling} src={props.image} />
-      <p><b>{props.type} • {props.city}</b></p>
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-      <p>{props.likes}</p>
-      <Button onClick={() => handleLike(props.id, 'true')}>
-        <ThumbUp />
-      </Button>
-      <Button onClick={() => handleLike(props.id, 'false')}>
-        <ThumbDown />
-      </Button>
+      <div style={textStyle}>
+        <p><b>{props.type} • {props.city}</b></p>
+        <h3>{props.title}</h3>
+        <p>{props.description}</p>
+        <p><span style={spanStyle}>{props.likes}</span>
+        <Button onClick={() => handleLike(props.id, 'true')}>
+          <ThumbUp />
+        </Button>
+        <Button onClick={() => handleLike(props.id, 'false')}>
+          <ThumbDown />
+        </Button>
+        </p>
+      </div>
     </div>
   );
 }

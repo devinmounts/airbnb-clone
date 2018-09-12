@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 function Home (props) {
   let welcomeDiv = {
     backgroundImage: 'url(\'http://www.livingcharm.com/wp-content/uploads/2017/01/cinque-stunning-italy-1600x1059.jpg\')',
-    minHeight: '1200px',
+    minHeight: '1000px',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

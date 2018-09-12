@@ -7,7 +7,9 @@ function NavBar() {
     width: '40px'
   };
   let imageDiv = {
-    display: 'inline-block'
+    display: 'inline-block',
+    marginLeft: "10px",
+    marginTop: "10px"
   };
   let linksDiv = {
     display: 'inline-block',
@@ -22,7 +24,9 @@ function NavBar() {
   };
   let navDiv = {
     position: 'fixed',
-    width: '100%'
+    width: '100%',
+    height: '75px',
+    background: '#ffffff21'
   };
 
 
@@ -32,11 +36,22 @@ function NavBar() {
         <img style={imageStyle} src="https://cdn.iconscout.com/icon/free/png-512/airbnb-7-532110.png"/>
       </div>
       <div style={linksDiv}>
-        <h5 style={linkEl}>Become A Host</h5>
-        <h5 style={linkEl}>Earn Credit</h5>
-        <h5 style={linkEl}>Help</h5>
-        <Link to='/newlisting'><h5 style={linkEl}>New Listing</h5></Link>
-        <h5 style={linkEl}>Log in</h5>
+        <h5 className="linkStyle">Become A Host</h5>
+        <h5 className="linkStyle">Earn Credit</h5>
+        <h5 className="linkStyle">Help</h5>
+        <Link to='/newlisting'><h5 className="linkStyle">New Listing</h5></Link>
+        <h5 className="linkStyle">Log in</h5>
+          <style jsx>{`
+            .linkStyle {
+                display: inline-block;
+                margin: 3%;
+                padding-bottom: 5px;
+                color: white;
+            }
+            .linkStyle:hover{
+              border-bottom: 3px solid white;
+            }
+        `}</style>
       </div>
     </div>
 
