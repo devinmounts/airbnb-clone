@@ -3,6 +3,7 @@ import NavBar from './NavBar';
 import Search from './Search';
 import Rentals from './Rentals';
 import Home from './Home';
+import Admin from './Admin';
 import NewListingControl from './NewListingControl';
 import { Switch, Route } from 'react-router-dom';
 
@@ -68,7 +69,6 @@ class App extends React.Component {
   handleExpansionShow(){
     this.setState( prevState => ({
       expansionShow: !prevState.expansionShow}));
-    console.log(this.state.expansionShow);
   }
 
   render(){
@@ -88,6 +88,13 @@ class App extends React.Component {
           />
           <Route  path='/newlisting' render={()=>
             <NewListingControl onNewListingCreation={this.handleAddingNewListing} />}
+          />
+        <Route path='/admin' render={() =>
+            <Admin listings={this.state.masterListingsList}
+              onUpdateLikes={this.handleUpdatingLikes}
+              filterText={this.state.filterText}
+              filterCategory={this.state.filterCategory}
+              />}
           />
         </Switch>
       </div>

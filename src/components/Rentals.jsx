@@ -38,8 +38,6 @@ function Rentals (props) {
     if (filterText !== null){
       if (filterCategory == 'city' || filterCategory == null) {
         if(listing.city.indexOf(filterText) === -1) {
-          console.log(filterText);
-          console.log(filterCategory);
           return;
         }
         list.push(listing);
@@ -56,9 +54,9 @@ function Rentals (props) {
         }
         list.push(listing);
       }
-      else {
-        list.push(listing);
-      }
+    }
+    else {
+      list.push(listing);
     }
   });
 

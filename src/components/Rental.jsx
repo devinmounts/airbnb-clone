@@ -7,7 +7,7 @@ import ThumbDown from '@material-ui/icons/ThumbDown';
 
 function Rental(props) {
   let listingDiv = {
-    width:'23%',
+    width:'22%',
     display: 'inline-block',
     verticalAlign: 'top',
     marginRight: '1%',

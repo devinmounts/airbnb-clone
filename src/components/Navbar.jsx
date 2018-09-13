@@ -40,7 +40,7 @@ function NavBar() {
         <h5 className="linkStyle">Earn Credit</h5>
         <h5 className="linkStyle">Help</h5>
         <Link to='/newlisting'><h5 className="linkStyle">New Listing</h5></Link>
-        <h5 className="linkStyle">Log in</h5>
+        <Link to='/admin'><h5 className="linkStyle">Admin</h5></Link>
           <style jsx>{`
             .linkStyle {
                 display: inline-block;
