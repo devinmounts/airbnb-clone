@@ -6,6 +6,7 @@ import NewListingControl from './NewListingControl';
 import PropTypes from 'prop-types';
 
 function Home (props) {
+  console.log(props.listingsList)
   let welcomeDiv = {
     backgroundImage: 'url(\'http://www.livingcharm.com/wp-content/uploads/2017/01/cinque-stunning-italy-1600x1059.jpg\')',
     minHeight: '1000px',
@@ -32,7 +33,7 @@ function Home (props) {
 }
 
 Home.propTypes = {
-  listingsList: PropTypes.array,
+  listingsList: PropTypes.object,
   onUpdateLikes: PropTypes.func,
   onFilterTextChange: PropTypes.func,
   filterText: PropTypes.string,

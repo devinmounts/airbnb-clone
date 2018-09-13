@@ -35,27 +35,49 @@ function Rental(props) {
   }
 
   function handleLike(likedId, check){
+    console.log('id' + likedId)
     props.onUpdateLikes(likedId, check);
   }
 
-  return(
-    <div style={listingDiv}>
-      <img style={imageStyling} src={props.image} />
-      <div style={textStyle}>
-        <p><b>{props.type} • {props.city}</b></p>
-        <h3>{props.title}</h3>
-        <p>{props.description}</p>
-        <p><span style={spanStyle}>{props.likes}</span>
-        <Button onClick={() => handleLike(props.id, 'true')}>
-          <ThumbUp />
-        </Button>
-        <Button onClick={() => handleLike(props.id, 'false')}>
-          <ThumbDown />
-        </Button>
-        </p>
-      </div>
+  function handleChangeSeletedListing(listing){
+    console.log(listing);
+    console.log('props in selected' + props);
+    props.onChangeSelectedListing(listing);
+  }
+
+  const listingInformation =
+  <div >
+    <img style={imageStyling} src={props.image} />
+    <div style={textStyle}>
+      <p><b>{props.type} • {props.city}</b></p>
+      <h3>{props.title}</h3>
+      <p>{props.description}</p>
+      <p><span style={spanStyle}>{props.likes}</span>
+      <Button onClick={() => handleLike(props.id, 'true')}>
+        <ThumbUp />
+      </Button>
+      <Button onClick={() => handleLike(props.id, 'false')}>
+        <ThumbDown />
+      </Button>
+      </p>
     </div>
-  );
+  </div>;
+
+  if(props.currentRouterPath === '/admin'){
+    return(
+      <div style={listingDiv} onClick={() => {handleChangeSeletedListing({complaints: props.complaints});}}>
+        {listingInformation}
+      </div>
+    );
+  } else {
+    return(
+      <div style={listingDiv}>
+        {listingInformation}
+      </div>
+
+    );
+  }
+
 }
 
 Rental.propTypes = {
@@ -65,8 +87,11 @@ Rental.propTypes = {
   city:PropTypes.string,
   description:PropTypes.string,
   likes:PropTypes.number,
+  complaints:PropTypes.string,
   id:PropTypes.string,
-  onUpdateLikes:PropTypes.func
+  onUpdateLikes:PropTypes.func,
+  currentRouterPath: PropTypes.string,
+  onChangeSelectedListing: PropTypes.func
 };
 
 export default Rental;

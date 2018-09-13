@@ -16,9 +16,10 @@ function Rentals (props) {
   const filterCategory = props.filterCategory;
 
 
-  let mappedListings = props.listings.map((el, i) => {
-    return { index: i, value: el};
-  });
+    let mappedListings = Object.values(props.listings).map((el, i) => {
+      console.log(el.city);
+      return { index: i, value: el};
+    });
 
   mappedListings.sort((a,b) => {
     if (a.value.likes < b.value.likes) {
@@ -30,8 +31,10 @@ function Rentals (props) {
     return 0;
   });
   let resultingList = mappedListings.map((el) => {
-    return props.listings[el.index];
+    return el.value;
   });
+
+
 
   resultingList.forEach((listing) =>{
 
@@ -58,8 +61,8 @@ function Rentals (props) {
     else {
       list.push(listing);
     }
+    console.log(list);
   });
-
 
   return(
     <div style={rentalDiv}>
@@ -71,19 +74,24 @@ function Rentals (props) {
           city = {listing.city}
           description = {listing.description}
           likes = {listing.likes}
-          key = {listing.id}
-          id = {listing.id}
-          onUpdateLikes={props.onUpdateLikes}/>
+          complaints = {listing.complaints}
+          key = {listing.key}
+          id = {listing.key}
+          onUpdateLikes={props.onUpdateLikes}
+          currentRouterPath={props.currentRouterPath}
+          onChangeSelectedListing={props.onChangeSelectedListing}/>
       )}
     </div>
   );
 }
 
 Rentals.propTypes = {
-  listings: PropTypes.array,
+  listings: PropTypes.object,
   onUpdateLikes: PropTypes.func,
   filterText: PropTypes.string,
-  filterCategory: PropTypes.string
+  filterCategory: PropTypes.string,
+  currentRouterPath: PropTypes.string,
+  onChangeSelectedListing: PropTypes.func
 };
 
 export default Rentals;

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
 
 function NewListingForm(props){
   let _type = null;
@@ -23,8 +22,7 @@ function NewListingForm(props){
       title: _title.value,
       description: _description.value,
       image: _image.value,
-      likes: 0,
-      id: v4()
+      likes: 0
     });
     _type.value = '';
     _city.value = '';
