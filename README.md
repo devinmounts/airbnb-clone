@@ -8,7 +8,7 @@
 ## A web application clone of the Air Bnb web page.  Application allows user to create new listing object, rate listings, and search for listing by various categories."
 
 ## Splash
-![Welcome Page](./src/assets/images/search.png)
+![Welcome Page](./src/assets/images/filters.png)
 
 ![Listings](./src/assets/images/listings.png)
 
